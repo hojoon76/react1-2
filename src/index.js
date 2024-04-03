@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 setInterval(() => {
   root.render(
     <React.StrictMode>
-      <Hello />
+      <App />
     </React.StrictMode>
   );
 })
