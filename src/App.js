@@ -5,10 +5,12 @@ import Clock from './chapter_04/Clock';
 import Comment from './Comment';
 import CommentList from './CommentList';
 import commentList from './chapter_05/CommentList';
+import useCounter from './chapter_07/useCounter';
 
 function App() {
   return (
     <div className="App">
+      <useCounter/>
       <Clock/>
       <CommentList/>
       <commentList/>

@@ -41,6 +41,62 @@
 
 # 정준호 201930127
 
+
+## 24.04.17 강의
+### 훅이란
+* 클래스형 컴토넌트에서는 생성자 state를 정의 하고, setState()함수를 통해 state를 업데이트 한다
+* 예전에는 사용하던 함수형 컴포넌트는 별도로 state를 정의하거나, 컴포넌트의 생명주기에 맞춰서 어떤 코드가 실해되도록 할 수 없었습니다.
+* 함수형 컴포넌트에서도 state나 생명주기 함수의 기능을 사용하게 해주기 위해 추가된 기능이 바로 훅(hook)입니다
+* 함수형 컴포넌트도 훅을 사용하여 클래스형 컴포넌트의 기능을 모두 동일하게 구현할 수 있게 되었습닏.
+* Hook이란 state와 생명주기 기능에 갈고리를 걸어 원하는 시점에 정해진 함수를 실행되도록 만든 함수를 의미합니다. 
+* 훅의 이름은 모두 **use로** 시작합니다.
+* 사용자 정의 훅을 만들 수 있으며, 이 경우에 이름은 자유롭게 할 수 있으나 use로 시작할 것을 권장합니다.
+
+### useState
+* useState는 함수형 컴포넌트에서 State를 사용하기 위한 훅
+  * 함수형 컴포넌트에서 상태를 추가할 수 있도록
+* useState를 사용하면 컴포넌트 내에서 상태를 선언하고 초기값을 설정할 수 있다
+### useEffect
+* 함수형 컴포넌트에서 side effect(부수 효과)를 수행할 수 있도록함
+* 훅을 사용하면 컴포넌트가 렌더링될 때마다 특정 작업을 수행하거나, 특정 상태가 변경될 때마다 작업을 수행하도록 설정할 수 있다
+### use Callback
+* useCallback() 훅은 useMemo와 유사하다
+* 함수를 기억해두고 필요할 때마다 동일한 함수를 제공하는 것입니다.
+* 예를 들어, 부모 컴포넌트에서 자식 컴포넌트로 콜백 함수를 전달할 때, 이 콜백 함수가 불필요하게 재생성되는 것을 방지하여 성능을 향상시킬 수 있다.
+* useCallback을 사용하는 간단한 예시입니다.
+  ```jsx
+    import React, { useState, useCallback } from 'react';
+
+    function MyComponent() {
+      const [count, setCount] = useState(0);
+
+      // 콜백 함수를 메모이제이션하여 재생성을 방지합니다.
+      const handleClick = useCallback(() => {
+        setCount(count + 1);
+      }, [count]); // count가 변경될 때만 함수를 재생성합니다.
+
+      return (
+        <div>
+          <p>Count: {count}</p>
+          {/* 메모이제이션된 콜백 함수를 자식 컴포넌트에 전달합니다. */}
+          <ChildComponent onClick={handleClick} />
+        </div>
+      );
+    }
+
+    function ChildComponent({ onClick }) {
+      // 메모이제이션된 콜백 함수를 사용하는 자식 컴포넌트입니다.
+      return <button onClick={onClick}>Increment Count</button>;
+    }
+
+  ```
+
+### useRef
+* DOM 요소나 다른 React 요소에 대한 참조를 생성하는 데 사용
+* 함수형 컴포넌트에서도 DOM 요소를 쉽게 참조할 수 있다
+
+
+
 ## 24.04.03 강의
 ### 컴포넌트에 대하여
 * 리액트는 컴포넌트 기반의 구조를 가짐
