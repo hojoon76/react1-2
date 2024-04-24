@@ -384,17 +384,17 @@ render() 함수 사용 <br>
 * 발전속도가 매우 빠르다.
 
 ### 리액트 설치하기
-* 노드깔기
+* ### 노드깔기
     * npm cache clean -force
     * npm install -g node@latest
     * node -v // 확인
 * 터미널 열어
     * 설치가 잘 안되는 편 무한시도!!, 다른 파일 만들어서 시도해보면 되는 경우도 있음
-    * npm install -g npm@latest // npm 최신버전 다운
+    * ### npm install -g npm@latest // npm 최신버전 다운
     * npm -v // npm 버전확인
-    * npm uninstall -g create-react-app // 리액트 지우기(처음에는 안해도 됨)
-    * npm install -g create-react-app // 리액트 설치
-    * npx create-react-app *파일이름* // npx 이용해서 리액트 설치 시도하는 법
+    * ### npm uninstall -g create-react-app // 리액트 지우기(처음에는 안해도 됨)
+    * ### npm install -g create-react-app // 리액트 설치
+    * ### npx create-react-app 파일이름 // npx 이용해서 리액트 설치 시도하는 법
 * 리액트 열기
     * npm start
 
